@@ -3,6 +3,9 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../shared/employee/employee.service';
 import { NgForm } from '@angular/forms';
+import { GridDataResult } from '@progress/kendo-angular-grid';
+import { SortDescriptor, orderBy } from '@progress/kendo-data-query';
+
 
 @Component({
   selector: 'app-employee-edit',

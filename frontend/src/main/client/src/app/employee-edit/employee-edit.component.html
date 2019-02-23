@@ -5,18 +5,57 @@
     </mat-card-header>
     <mat-card-content>
       <input type="hidden" name="href" [(ngModel)]="employee.href">
-      <mat-form-field>
-        <input matInput placeholder="Employee Name" [(ngModel)]="employee.name"
-               required name="name" #name>
-      </mat-form-field>
+      <mat-grid-list cols="2" rowHeight="6:1">
+        <mat-grid-tile>
+          <mat-form-field>
+            <input matInput placeholder="Employee Name" [(ngModel)]="employee.name"
+                 required name="name" #name>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <input matInput placeholder="Employee Last Name" [(ngModel)]="employee.lastname"
+                   required name="lastname" #lastname>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field *ngIf="employee.designation">
+            <input matInput placeholder="Designation" [(ngModel)]="employee.designation.name"
+                   required name="designation" #designation>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field *ngIf="employee.project">
+            <input matInput placeholder="Project" [(ngModel)]="employee.project.name"
+                   required name="project" #project>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+
+            <mat-slide-toggle>Status</mat-slide-toggle>
+
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="!employeeForm.form.valid">Save
+        </button>
+        <button mat-raised-button color="secondary" (click)="remove(employee.href)"
+                *ngIf="employee.href" type="button">Delete
+        </button>
+        <a mat-button routerLink="/employee-list">Cancel</a>
+      </mat-card-actions>
+
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit"
-              [disabled]="!employeeForm.form.valid">Save</button>
-      <button mat-raised-button color="secondary" (click)="remove(employee.href)"
-              *ngIf="employee.href" type="button">Delete</button>
-      <a mat-button routerLink="/employee-list">Cancel</a>
-    </mat-card-actions>
+
     <mat-card-footer>
 
     </mat-card-footer>

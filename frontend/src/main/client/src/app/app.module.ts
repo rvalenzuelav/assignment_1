@@ -9,6 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { SliderModule } from '@progress/kendo-angular-inputs';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
+
 
 @NgModule({
   declarations: [
@@ -26,9 +34,17 @@ import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
     MatInputModule,
     MatListModule,
     MatToolbarModule,
-    FormsModule
+    FormsModule,
+    GridModule,
+    SliderModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatGridListModule,
+    MatSlideToggleModule
   ],
-  providers: [],
+  providers: [
+    MatNativeDateModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

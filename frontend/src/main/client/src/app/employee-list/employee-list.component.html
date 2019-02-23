@@ -1,17 +1,62 @@
 <mat-card>
   <mat-card-title>Employee List</mat-card-title>
   <mat-card-content>
-    <mat-list>
-      <mat-list-item *ngFor="let employee of employees">
 
-        <h3 mat-line>
-          <a mat-button [routerLink]="['/employee-edit', employee.id]">{{employee.name}}</a>
-        </h3>
+    <kendo-grid
+      [data]="employees"
+      [height]="370"
+      [sortable]="{
+            allowUnsort: allowUnsort,
+            mode: multiple ? 'multiple' : 'single'
+            }"
+      [sort]="sort"
+      (sortChange)="sortChange($event)"
+      [kendoGridBinding]="data"
+      [pageSize]="pageSize"
+      [skip]="skip"
+      [pageable]="true"
+      (pageChange)="onPageChange($event)">
+      <kendo-grid-column field="id" title="ID" width="40">
+        </kendo-grid-column>
+        <kendo-grid-column field="name" title="Name" width="250">
+        </kendo-grid-column>
+        <kendo-grid-column field="lastname" title="Last Name" width="250">
+        </kendo-grid-column>
+        <kendo-grid-column field="designation.name" title="Designation">
+        </kendo-grid-column>
+        <kendo-grid-column field="project.name" title="Project">
+        </kendo-grid-column>
+        <kendo-grid-column field="joiningDate" title="Joining Date" width="120">
+        </kendo-grid-column>
+        <kendo-grid-column field="status" title="Status" width="120">
+        </kendo-grid-column>
+      <kendo-grid-command-column title="Action" width="120">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <button kendoGridEditCommand class="k-primary">
+            <a mat-button [routerLink]="['/employee-edit', dataItem.id]">Edit</a>
+          </button>
+        </ng-template>
+      </kendo-grid-command-column>
 
-      </mat-list-item>
-    </mat-list>
+      <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">
+        <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+        <kendo-slider
+          [showButtons]="false"
+          [tickPlacement]="'none'"
+          [max]="totalPages"
+          [min]="1"
+          (valueChange)="sliderChange($event)"
+          [value]="currentPage">
+        </kendo-slider>
+        <kendo-pager-info></kendo-pager-info>
+        <kendo-pager-next-buttons></kendo-pager-next-buttons>
+        <kendo-pager-page-sizes [pageSizes]="[5, 10, 40]"></kendo-pager-page-sizes>
+      </ng-template>
+
+    </kendo-grid>
   </mat-card-content>
 
   <button mat-fab color="primary" [routerLink]="['/employee-add']">Add</button>
 
 </mat-card>
+
