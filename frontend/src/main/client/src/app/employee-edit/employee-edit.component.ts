@@ -25,7 +25,7 @@ export class EmployeeEditComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
+      const id = params['_id'];
       if (id) {
         this.employeeService.get(id).subscribe((employee: any) => {
           if (employee) {

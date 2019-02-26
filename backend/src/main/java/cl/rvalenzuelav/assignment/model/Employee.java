@@ -4,30 +4,27 @@ import cl.rvalenzuelav.assignment.model.enumerations.Status;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
 @Data
 @NoArgsConstructor
+@Document(collection = "employee")
 public class Employee {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    private ObjectId _id;
+
     private @NonNull String name;
 
     private @NonNull String lastname;
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    private Designation designation;
+    private String designation;
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    private Project project;
+    private String project;
 
     private Date joiningDate;
 
-    @Enumerated
     private Status status;
 }

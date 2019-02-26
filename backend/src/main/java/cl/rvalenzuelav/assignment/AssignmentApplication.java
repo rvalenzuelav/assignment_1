@@ -9,10 +9,12 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import java.util.Date;
 import java.util.stream.Stream;
 
+@EnableMongoRepositories(basePackageClasses=EmployeeRepository.class)
 @SpringBootApplication
 public class AssignmentApplication {
 
@@ -20,7 +22,7 @@ public class AssignmentApplication {
 		SpringApplication.run(AssignmentApplication.class, args);
 	}
 
-	@Bean
+	/*@Bean
 	ApplicationRunner init(EmployeeRepository repository) {
 		return args -> {
 			Stream.of("Pedro", "Juan", "Diego", "Antonio", "Hernan",
@@ -28,20 +30,20 @@ public class AssignmentApplication {
 				Employee employee = new Employee();
 				employee.setName(name);
 
-				Designation designation = new Designation();
+				*//*Designation designation = new Designation();
 				designation.setName("DevOps");
 				Project project = new Project();
-				project.setName("Porject XYZ");
+				project.setName("Project XYZ");*//*
 
-				employee.setDesignation(designation);
+				employee.setDesignation("DevOps");
 				employee.setJoiningDate(new Date());
 				employee.setLastname("Perez");
-				employee.setProject(project);
+				employee.setProject("Project XYZ");
 				employee.setStatus(Status.ACTIVE);
 				repository.save(employee);
 			});
 			repository.findAll().forEach(System.out::println);
 		};
-	}
+	}*/
 
 }

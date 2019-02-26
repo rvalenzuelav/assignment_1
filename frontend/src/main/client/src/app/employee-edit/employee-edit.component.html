@@ -20,7 +20,7 @@
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field *ngIf="employee.designation">
-            <input matInput placeholder="Designation" [(ngModel)]="employee.designation.name"
+            <input matInput placeholder="Designation" [(ngModel)]="employee.designation"
                    required name="designation" #designation>
           </mat-form-field>
         </mat-grid-tile>
@@ -33,7 +33,7 @@
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field *ngIf="employee.project">
-            <input matInput placeholder="Project" [(ngModel)]="employee.project.name"
+            <input matInput placeholder="Project" [(ngModel)]="employee.project"
                    required name="project" #project>
           </mat-form-field>
         </mat-grid-tile>

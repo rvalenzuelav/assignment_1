@@ -16,15 +16,15 @@
       [skip]="skip"
       [pageable]="true"
       (pageChange)="onPageChange($event)">
-      <kendo-grid-column field="id" title="ID" width="40">
+      <kendo-grid-column field="_id.counter" title="ID" width="60">
         </kendo-grid-column>
         <kendo-grid-column field="name" title="Name" width="250">
         </kendo-grid-column>
         <kendo-grid-column field="lastname" title="Last Name" width="250">
         </kendo-grid-column>
-        <kendo-grid-column field="designation.name" title="Designation">
+        <kendo-grid-column field="designation" title="Designation">
         </kendo-grid-column>
-        <kendo-grid-column field="project.name" title="Project">
+        <kendo-grid-column field="project" title="Project">
         </kendo-grid-column>
         <kendo-grid-column field="joiningDate" title="Joining Date" width="120">
         </kendo-grid-column>

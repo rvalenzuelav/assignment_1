@@ -3,21 +3,19 @@ package cl.rvalenzuelav.assignment.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
-import javax.persistence.*;
 import java.util.Set;
 
-@Entity
 @Data
 @NoArgsConstructor
 public class Project {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    private ObjectId _id;
     private @NonNull String name;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @DBRef
     private Set<Employee> employee;
 
 }
