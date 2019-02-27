@@ -3,8 +3,6 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../shared/employee/employee.service';
 import { NgForm } from '@angular/forms';
-import { GridDataResult } from '@progress/kendo-angular-grid';
-import { SortDescriptor, orderBy } from '@progress/kendo-data-query';
 
 
 @Component({
@@ -25,11 +23,12 @@ export class EmployeeEditComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.sub = this.route.params.subscribe(params => {
-      const id = params['_id'];
+      const id = params['id'];
       if (id) {
         this.employeeService.get(id).subscribe((employee: any) => {
           if (employee) {
             this.employee = employee;
+            this.employee.joiningDate = new Date(employee.joiningDate);
             this.employee.href = employee._links.self.href;
 
           } else {
