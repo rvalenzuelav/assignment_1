@@ -22,7 +22,7 @@ public class AssignmentApplication {
 		SpringApplication.run(AssignmentApplication.class, args);
 	}
 
-	/*@Bean
+	@Bean
 	ApplicationRunner init(EmployeeRepository repository) {
 		return args -> {
 			Stream.of("Pedro", "Juan", "Diego", "Antonio", "Hernan",
@@ -30,20 +30,20 @@ public class AssignmentApplication {
 				Employee employee = new Employee();
 				employee.setName(name);
 
-				*//*Designation designation = new Designation();
-				designation.setName("DevOps");
-				Project project = new Project();
-				project.setName("Project XYZ");*//*
+//				Designation designation = new Designation();
+//				designation.setName("DevOps");
+//				Project project = new Project();
+//				project.setName("Project XYZ");
 
 				employee.setDesignation("DevOps");
 				employee.setJoiningDate(new Date());
 				employee.setLastname("Perez");
 				employee.setProject("Project XYZ");
-				employee.setStatus(Status.ACTIVE);
+				employee.setStatus(true);
 				repository.save(employee);
 			});
 			repository.findAll().forEach(System.out::println);
 		};
-	}*/
+	}
 
 }
