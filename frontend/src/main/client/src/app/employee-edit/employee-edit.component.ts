@@ -4,7 +4,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {EmployeeService} from '../shared/employee/employee.service';
 import {NgForm} from '@angular/forms';
 
-
 @Component({
   selector: 'app-employee-edit',
   templateUrl: './employee-edit.component.html',
