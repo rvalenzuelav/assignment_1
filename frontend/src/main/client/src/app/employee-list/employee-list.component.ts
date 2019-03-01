@@ -12,7 +12,7 @@ export class EmployeeListComponent implements OnInit {
   public multiple = true;
   public allowUnsort = true;
   public sort: SortDescriptor[] = [{
-    field: 'id',
+    field: 'name',
     dir: 'asc'
   }];
   public gridView: GridDataResult;

@@ -27,7 +27,7 @@
         <mat-grid-tile>
           <mat-form-field>
             <input matInput [matDatepicker]="picker" required name="joiningDate" #joiningDate
-                   ngModel
+                   ngModel [(ngModel)]="employee.joiningDate"
                    placeholder="Choose a date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -41,7 +41,9 @@
         </mat-grid-tile>
         <mat-grid-tile>
 
-          <mat-slide-toggle [checked]="employee.status" ngModel required name="status" #status>
+          <mat-slide-toggle [checked]="employee.status"
+                    ngModel [(ngModel)]="employee.status"
+                    required name="status" #status>
             Status
           </mat-slide-toggle>
         </mat-grid-tile>

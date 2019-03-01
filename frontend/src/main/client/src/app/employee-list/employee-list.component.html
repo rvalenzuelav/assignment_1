@@ -4,18 +4,13 @@
 
     <kendo-grid
       [data]="employees"
-      [height]="370"
+      [height]="530"
       [sortable]="{
             allowUnsort: allowUnsort,
             mode: multiple ? 'multiple' : 'single'
             }"
       [sort]="sort"
-      (sortChange)="sortChange($event)"
-      [kendoGridBinding]="data"
-      [pageSize]="pageSize"
-      [skip]="skip"
-      [pageable]="true"
-      (pageChange)="onPageChange($event)">
+      (sortChange)="sortChange($event)">
       <kendo-grid-column field="id" title="ID" width="60">
       </kendo-grid-column>
       <kendo-grid-column field="name" title="Name" width="250">
